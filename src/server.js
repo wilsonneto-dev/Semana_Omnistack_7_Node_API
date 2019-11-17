@@ -3,11 +3,11 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const http = require('http');
+const socket = require('socket.io');
 
 const dotenv = require('./configs/dotenv');
 const router = require('./router');
 const mongoose = require('./configs/mongoose');
-const socket = require('socket.io');
 
 const app = express();
 const httpServer = http.Server(app);
@@ -24,6 +24,8 @@ const staticPath = path.resolve(__dirname, '..', 'uploads', 'resized');
 app.use('/files', express.static(staticPath));
 
 app.use(router);
+
+console.log('PORT ', process.env.PORT);
 
 httpServer.listen(process.env.SERVER_PORT, () => {
   // eslint-disable-next-line no-console
