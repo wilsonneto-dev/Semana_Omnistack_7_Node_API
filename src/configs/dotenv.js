@@ -7,10 +7,7 @@ console.log('name: ', process.env.NAME);
 
 const env = process.env.NODE_ENV || 'dev';
 
-if (
-  env == 'dev' &&
-  fs.existsSync(path.resolve(__dirname, '..', '..', '.env'))
-) {
+if (env == 'dev') {
   dotenv.config({ path: '.env' });
 }
 
