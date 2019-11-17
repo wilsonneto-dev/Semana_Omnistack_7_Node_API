@@ -25,9 +25,7 @@ app.use('/files', express.static(staticPath));
 
 app.use(router);
 
-console.log('PORT ', process.env.PORT);
-
-httpServer.listen(process.env.SERVER_PORT, () => {
+httpServer.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
   console.log('server running...');
 });
